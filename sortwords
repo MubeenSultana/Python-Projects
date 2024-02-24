@@ -1,0 +1,21 @@
+def custom_sort_sequences(sequences):
+    n = len(sequences)
+
+    # Implementing a variation of bubble sort
+    for i in range(n):
+        for j in range(0, n-i-1):
+            # Compare lengths first
+            if len(sequences[j]) > len(sequences[j+1]):
+                sequences[j], sequences[j+1] = sequences[j+1], sequences[j]
+            # If lengths are the same, compare alphabetically
+            elif len(sequences[j]) == len(sequences[j+1]) and sequences[j] > sequences[j+1]:
+                sequences[j], sequences[j+1] = sequences[j+1], sequences[j]
+
+    return sequences
+
+# Example usage:
+sequences = ["ATGGCCGTGG", "ATGG", "TACC", "AATTGG", "A", "GCTGGGGG", "ATCG"]
+
+sorted_sequences = custom_sort_sequences(sequences)
+
+print("Sorted sequences:", sorted_sequences)
